@@ -1,0 +1,28 @@
+
+* {
+	box-sizing: border-box;
+	outline: 0;
+	text-decoration: none;
+}
+
+html {
+	height: 100%;
+	overflow-x: hidden;
+}
+
+body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+.app {
+  height: 100%;
+  background-color: #41B883;
+  text-align: center;
+}
+
+.logo {
+  width: 300px;
+  height: auto;
+}

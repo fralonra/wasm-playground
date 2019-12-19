@@ -1,0 +1,29 @@
+{
+  "name": "felid-now",
+  "version": "1.0.0",
+  "description": "A demo of using Felid with ZEIT Now.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fralonra/felid-now.git"
+  },
+  "keywords": [
+    "web",
+    "framework",
+    "api"
+  ],
+  "author": "zoron (https://github.com/fralonra/)",
+  "bugs": {
+    "url": "https://github.com/fralonra/felid-now/issues"
+  },
+  "homepage": "https://github.com/fralonra/felid-now#readme",
+  "license": "ISC",
+  "dependencies": {
+    "felid": "^0.0.4",
+    "felid-handlebars": "^1.1.0",
+    "felid-serve": "^1.1.1"
+  }
+}
