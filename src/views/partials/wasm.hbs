@@ -1,18 +1,18 @@
 <script src="/public/wasm_exec.js"></script>
-  <script>
-		if (!WebAssembly.instantiateStreaming) { // polyfill
-			WebAssembly.instantiateStreaming = async (resp, importObject) => {
-				const source = await (await resp).arrayBuffer()
-				return await WebAssembly.instantiate(source, importObject)
-			}
+<script>
+	if (!WebAssembly.instantiateStreaming) { // polyfill
+		WebAssembly.instantiateStreaming = async (resp, importObject) => {
+			const source = await (await resp).arrayBuffer()
+			return await WebAssembly.instantiate(source, importObject)
 		}
+	}
 
-		const go = new Go()
-		WebAssembly.instantiateStreaming(fetch('/public/wasm/{{ path }}.wasm'), go.importObject)
-			.then((result) => {
-				document.getElementById('loading').remove()
-				go.run(result.instance)
-			}).catch((err) => {
-				console.error(err)
-			})
-	</script>
+	const go = new Go()
+	WebAssembly.instantiateStreaming(fetch('/public/wasm/{{ page }}.wasm'), go.importObject)
+		.then((result) => {
+			document.getElementById('loading').remove()
+			go.run(result.instance)
+		}).catch((err) => {
+			console.error(err)
+		})
+</script>

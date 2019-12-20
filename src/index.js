@@ -2,6 +2,8 @@ const fs = require('fs')
 const path = require('path')
 const Felid = require('felid')
 
+const globalTitle = 'Wasm Playground'
+
 const app = new Felid()
 
 app.plugin(require('felid-serve'), {
@@ -17,6 +19,11 @@ app.plugin(require('felid-handlebars'), {
     })
   }
 })
+app.plugin((felid) => {
+  felid.decorate('content', require(path.resolve(__dirname, 'content')))
+})
+
+app.use(checkPage)
 
 app.get('/public/*', (req, res) => {
   res.serve(req.params['*'])
@@ -25,20 +32,39 @@ app.get('/public/*', (req, res) => {
 app.get('/', (req, res) => {
   res.render('index.hbs', {
     logoPath: 'public/logo.svg',
-    title: 'Felid Now'
+    title: globalTitle,
+    content: app.content
   })
 })
 
-app.get('/wasm/:path', (req, res) => {
+app.get('/wasm/:page', (req, res) => {
   res.render('wasm.hbs', {
-    path: req.params.path
+    page: req.params.page
   })
 })
 
-app.get('/:path', (req, res) => {
-  res.render('path.hbs', {
-    path: req.params.path
+app.get('/:page', (req, res) => {
+  res.render('page.hbs', {
+    content: res.content,
+    page: res.page,
+    title: `${res.content.title} - ${globalTitle}`
   })
 })
+
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(3000)
+}
+
+function checkPage (req, res) {
+  const page = req.params.page
+  if (!page) return
+  const content = app.content[page]
+  if (!content) {
+    res.code(404).send('Not found')
+    return
+  }
+  res.page = page
+  res.content = content
+}
 
 module.exports = app.lookup()

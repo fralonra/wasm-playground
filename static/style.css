@@ -16,10 +16,16 @@ body {
 	padding: 0;
 }
 
+li {
+	list-style: none;
+	text-align: left;
+}
+
 .app {
   height: 100%;
   background-color: #41B883;
-  text-align: center;
+	text-align: center;
+	overflow: hidden;
 }
 
 .logo {

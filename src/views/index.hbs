@@ -9,8 +9,11 @@
 </head>
 <body>
   <div class="app">
-    <img class="logo" src={{ logoPath }} alt="logo">
-    <h1>Try <a href="https://github.com/felidjs/felid" target="_blank">Felid</a> Now!</h1>
+    <ul>
+    {{#each content}}
+      <li><a href="/{{ @key }}">{{ this.title }}</a> - <span>{{ this.description }}</span></li>
+    {{/each}}
+    </ul>
   </div>
 </body>
 </html>
