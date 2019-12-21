@@ -1,0 +1,23 @@
+{{ define "title" }}
+{{ .Title }} &ndash; {{ .Site.Title }}
+{{ end }}
+{{ define "head" }}
+<style>
+  iframe {
+    border-style: solid;
+    border-width: 1px;
+    border-color: #333333;
+  }
+</style>
+{{ end }}
+{{ define "main" }}
+<h1>{{ .Title }}</h1>
+{{ .Content }}
+<h3>{{ .Description }}</h3>
+<iframe title="{{ .Title }}" src="/iframe/{{ .File.BaseFileName }}" width="800" height="600" allow="autoplay"></iframe>
+<script>
+function callback () {
+  document.getElementById('loading').remove()
+}
+</script>
+{{ end }}
