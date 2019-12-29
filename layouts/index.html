@@ -1,26 +1,13 @@
 {{ define "main" }}
-<main aria-role="main">
-  <header class="homepage-header">
-    <h1>{{.Title}}</h1>
-    {{ with .Params.subtitle }}
-    <span class="subtitle">{{.}}</span>
+<div class="mw-8 center">
+  <ul class="list ta-l">
+    {{ range .Site.RegularPages }}
+    {{ if eq .Section "wasm" }}
+    <li>
+      <a class="c-black" href="{{.Permalink}}"><b>{{.Title}}</b> - <span>{{.Description}}</span></a>
+    </li>
     {{ end }}
-  </header>
-  <div class="homepage-content">
-    <!-- Note that the content for index.html, as a sort of list page, will pull from content/_index.md -->
-    {{.Content}}
-  </div>
-  <div>
-    <!-- Note that .Pages is the same as .Site.RegularPages on the homepage template. -->
-    <ul class="homepage-list">
-      {{ range .Site.RegularPages }}
-      {{ if eq .Section "wasm" }}
-      <li class="homepage-list-item">
-        <a href="{{.Permalink}}">{{.Title}}</a> - <span>{{.Description}}</span>
-      </li>
-      {{ end }}
-      {{ end }}
-    </ul>
-  </div>
-</main>
+    {{ end }}
+  </ul>
+</div>
 {{ end }}

@@ -9,16 +9,95 @@ html {
 	overflow-x: hidden;
 }
 
-body {
-	margin: 0;
-  padding: 0;
+iframe {
+  border-style: solid;
+  border-width: 1px;
+  border-color: #333;
 }
 
-.homepage-header {
-  text-align: center;
+// background-color
+.bg-black {
+	background-color: #000;
 }
 
-.homepage-list-item {
-	list-style: none;
+// color
+.c-black {
+	color: #000;
+}
+
+.c-white {
+	color: #fff;
+}
+
+// display
+.d-b {
+	display: block;
+}
+
+.d-ib {
+	display: inline-block;
+}
+
+.d-f {
+	display: flex;
+}
+
+// max-width
+.mw-8 {
+	max-width: 64rem;
+}
+
+// overflow
+.of-hidden {
+	overflow: hidden;
+}
+
+// text-align
+.ta-c {
+	text-align: center;
+}
+
+.ta-l {
 	text-align: left;
+}
+
+.ta-r {
+	text-align: right;
+}
+
+// padding
+.pd(6);
+.pd(@n, @i: 0) when (@i =< @n) {
+	@offset: @i * 0.25rem;
+  .pt-@{i} { padding-top: @offset; }
+  .pr-@{i} { padding-right: @offset; }
+  .pb-@{i} { padding-bottom: @offset; }
+  .pl-@{i} { padding-left: @offset; }
+  .px-@{i} { padding: 0 @offset; }
+	.py-@{i} { padding: @offset 0; }
+	.pd-@{i} { padding: @offset; }
+  .pd(@n, (@i + 1));
+}
+
+// margin
+.mg(6);
+.mg(@n, @i: 0) when (@i =< @n) {
+	@offset: @i * 0.25rem;
+  .mt-@{i} { margin-top: @offset; }
+  .mr-@{i} { margin-right: @offset; }
+  .mb-@{i} { margin-bottom: @offset; }
+  .ml-@{i} { margin-left: @offset; }
+  .mx-@{i} { margin: 0 @offset; }
+	.my-@{i} { margin: @offset 0; }
+	.mg-@{i} { margin: @offset; }
+  .mg(@n, (@i + 1));
+}
+
+// others
+.center {
+	margin: 0 auto;
+}
+
+.list {
+	list-style: none;
 }

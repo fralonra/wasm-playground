@@ -1,0 +1,8 @@
+[[items]]
+name = "Home"
+link = "/"
+
+[[items]]
+name = "Github"
+link = "https://github.com/fralonra/wasm-playground"
+targetBlank = true

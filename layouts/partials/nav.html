@@ -1,0 +1,9 @@
+<nav class="flex pd-5" role="navigation">
+  <ul class="pd-0 mg-0 ta-r">
+    {{ range .Site.Data.nav.items }}
+    <li class="d-ib list pr-3" >
+      <a class="c-white" href="{{.link}}" title="{{.name}}" {{if .targetBlank }}target="blank"{{ end }}>{{.name}}</a>
+    </li>
+    {{ end }}
+  </ul>
+</nav>
