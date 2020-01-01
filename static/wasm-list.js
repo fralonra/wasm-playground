@@ -1,0 +1,1 @@
+var cacheFiles=["/wasm/dotdot.wasm"]

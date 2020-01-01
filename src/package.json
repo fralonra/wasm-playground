@@ -4,7 +4,8 @@
   "description": "",
   "scripts": {
     "build": "gulp build",
-    "watch": "gulp watch",
+    "build:dev": "gulp buildDev",
+    "watch": "gulp buildDev && gulp watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "zoron (https://github.com/fralonra/)",
