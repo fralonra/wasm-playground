@@ -1,7 +1,7 @@
 {
   "name": "WASM playground",
   "short_name": "WASM playground",
-  "start_url": ".",
+  "start_url": "/",
   "display": "standalone",
   "theme_color": "#fff",
   "background_color": "#fff",
