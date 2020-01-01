@@ -1,20 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1"/>
   <title>{{ block "title" . }}{{ .Site.Title }}{{ end }}</title>
+  <meta name="description" content="My WASM playground">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1" />
+  <link rel="shortcut icon" href="/favicon.ico">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="manifest" href="/app.webmanifest">
+  <link rel="icon" type="image/png" href="/icons/icon-128.png" sizes="128x128" />
+  <link rel="apple-touch-icon" href="/icons/icon-128.png">
+  <script src="/pwacompat.min.js" defer></script>
   <script src="/app.js" defer></script>
   {{ block "head" . }}{{ end }}
 </head>
 
 <body class="pd-0 mg-0 of-hidden">
   {{ block "header" . }}{{ partial "header.html" . }}{{ end }}
-  <main aria-role="main">
+  <main role="main">
     {{ block "main" . }}{{ end }}
   </main>
   {{ block "footer" . }}{{ end }}
