@@ -7,14 +7,16 @@
   <h1>{{ .Title }}</h1>
   <h4>{{ .Description }}</h4>
   {{ .Content }}
-  <iframe class="d-b center" title="{{ .Title }}" src="/iframe/{{ .File.BaseFileName }}" width="800" height="600" allow="autoplay"></iframe>
+  <div class="iframe-container">
+    <iframe title="{{ .Title }}" src="/iframe/{{ .File.BaseFileName }}/" allow="autoplay"></iframe>
+  </div>
 </article>
 {{ end }}
 
 {{ define "scripts" }}
 <script>
-function callback () {
-  document.getElementById('loading').remove()
-}
+  function callback () {
+    document.getElementById('loading').remove()
+  }
 </script>
 {{ end }}
